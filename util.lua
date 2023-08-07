@@ -13,9 +13,7 @@ end
 ---@return boolean file is readable
 function M.file_exists(name)
   local f = io.open(name, "r")
-  if f then
-    io.close(f)
-  end
+  if f then f:close() end
   return f ~= nil
 end
 
