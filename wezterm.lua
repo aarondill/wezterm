@@ -1,4 +1,3 @@
-
 return require("plugin")({
   "theme",
   "update",
