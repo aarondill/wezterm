@@ -4,9 +4,11 @@ on:
     paths:
       - "**.lua"
 jobs:
-  test_default:
+  format_code:
+    if: github.event.pull_request.repository == 'aarondill/wezterm'
     runs-on: ubuntu-latest
     steps:
+      - uses: crazy-max/ghaction-dump-context@v1
       - uses: actions/checkout@v3
       - uses: JohnnyMorganz/stylua-action@v3
         with:
