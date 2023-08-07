@@ -1,5 +1,5 @@
-local wezterm = require("wezterm")
 local util = require("util")
+local wezterm = require("wezterm")
 
 -- allow calling the export (or export.plugin)
 local M = {}
@@ -14,9 +14,7 @@ setmetatable(M, {
 local config = {}
 -- In newer versions of wezterm, use the config_builder which will
 -- help provide clearer error messages
-if wezterm.config_builder then
-  config = wezterm.config_builder()
-end
+if wezterm.config_builder then config = wezterm.config_builder() end
 
 ---function to get current configuration. Returns a reference to the table! This table may change with **ANY** call from this module.
 ---@return table config
@@ -61,9 +59,7 @@ function M.plugin(mod)
   end
 
   -- If table, merge with config
-  if type(export) == "table" then
-    return merge_config(export)
-  end
+  if type(export) == "table" then return merge_config(export) end
 
   -- If function, call with current config and merge result
   if type(export) == "function" then
