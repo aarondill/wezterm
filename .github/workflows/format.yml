@@ -1,4 +1,6 @@
 name: Lint With Stylua
+permissions:
+  contents: true
 on:
   push:
     branches:
