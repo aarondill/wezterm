@@ -12,4 +12,3 @@ return require("plugin")({
   "toggle-ligature",
   "toggle-fullscreen",
 })
-
