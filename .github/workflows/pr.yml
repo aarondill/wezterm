@@ -1,5 +1,8 @@
 name: Check Lint With Stylua
-on: pull_request
+on:
+  pull_request:
+    paths:
+      - "**.lua"
 jobs:
   test_default:
     runs-on: ubuntu-latest

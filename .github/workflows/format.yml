@@ -1,5 +1,8 @@
 name: Lint With Stylua
-on: push
+on:
+  push:
+    paths:
+      - "**.lua"
 jobs:
   format_code:
     runs-on: ubuntu-latest
