@@ -5,7 +5,7 @@ on:
       - "**.lua"
 jobs:
   format_code:
-    # if: github.event.pull_request.repository == 'aarondill/wezterm'
+    if: github.repository == 'aarondill/wezterm'
     runs-on: ubuntu-latest
     steps:
       - uses: crazy-max/ghaction-dump-context@v1
