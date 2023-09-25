@@ -70,7 +70,7 @@ function M.plugin(mod)
       util.printf("Module plugins.%s threw error: %s", mod, res)
 
     -- Returned true or nil, just ignore it.
-    elseif type(res) == true then
+    elseif res == true then
       return config
     -- Returned table, merge
     elseif type(res) == "table" then
