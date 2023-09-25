@@ -69,6 +69,9 @@ function M.plugin(mod)
     if not suc then
       util.printf("Module plugins.%s threw error: %s", mod, res)
 
+    -- Returned true or nil, just ignore it.
+    elseif type(res) == true then
+      return config
     -- Returned table, merge
     elseif type(res) == "table" then
       return merge_config(res)
