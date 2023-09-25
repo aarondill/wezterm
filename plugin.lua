@@ -49,6 +49,8 @@ function M.plugin(mod)
     util.printf("require of plugins.%s failed: %s", mod, export)
     return config
   end
+  -- Returned true or nil, just ignore it.
+  if export == true then return config end
 
   -- if type=="module" then import each plugin in the list relative to the module. ONLY works with init.lua
   if type(export) == "table" and export.type == "module" then
@@ -69,9 +71,6 @@ function M.plugin(mod)
     if not suc then
       util.printf("Module plugins.%s threw error: %s", mod, res)
 
-    -- Returned true or nil, just ignore it.
-    elseif res == true then
-      return config
     -- Returned table, merge
     elseif type(res) == "table" then
       return merge_config(res)
@@ -83,6 +82,7 @@ function M.plugin(mod)
 
   -- Not table or function!
   elseif export then
+    util.printf("%s", export)
     util.printf("Module plugins.%s exported a %s, expected table or fun(c:table):table", mod, type(export))
   end
 
