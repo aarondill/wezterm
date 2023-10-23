@@ -1,4 +1,4 @@
-local util = require("util")
+local tbl_merge_modify = require("util.tbl_merge_modify")
 local wezterm = require("wezterm")
 
 -- allow calling the export (or export.plugin)
@@ -23,7 +23,7 @@ function M.get_config()
 end
 
 local function merge_config(merge)
-  return util.tbl_merge_modify(config, merge)
+  return tbl_merge_modify(config, merge)
 end
 
 ---Requires plugins.mod and merges the configuration with the returned table, or runs the returned function with the current configuration as an argument and merges the returned table. nil return values are ignored. If a table is passed, it's iterated (recursively) with ipairs and each module is required.
