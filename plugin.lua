@@ -23,6 +23,9 @@ function M.get_config()
 end
 
 local function merge_config(merge)
+  wezterm.log_warn(
+    "Returning a table breaks things and should be avoided! Return a function that wraps your entire file instead. https://github.com/wez/wezterm/issues/2401"
+  )
   return tbl_merge_modify(config, merge)
 end
 
