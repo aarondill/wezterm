@@ -7,7 +7,7 @@ wezterm.on("toggle-opacity", function(window)
   else
     overrides.window_background_opacity = nil
   end
-  window:set_config_overrides(overrides)
+  return window:set_config_overrides(overrides)
 end)
 
 return require("util").define_key({

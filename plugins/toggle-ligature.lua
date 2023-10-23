@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 
-wezterm.on("toggle-ligature", function(window, pane)
+wezterm.on("toggle-ligature", function(window)
   local overrides = window:get_config_overrides() or {}
   if not overrides.harfbuzz_features then
     -- If we haven't overridden it yet, then override with ligatures disabled

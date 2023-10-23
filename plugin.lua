@@ -40,13 +40,13 @@ function M.plugin(mod)
   end
 
   if type(mod) ~= "string" then
-    util.printf("plugin expected string, got %s", type(mod))
+    wezterm.log_error(string.format("plugin expected string, got %s", type(mod)))
     return config
   end
 
   local suc, export = pcall(require, "plugins." .. mod)
   if not suc then
-    util.printf("require of plugins.%s failed: %s", mod, export)
+    wezterm.log_error(string.format("require of plugins.%s failed: %s", mod, export))
     return config
   end
   -- Returned true or nil, just ignore it.
@@ -69,7 +69,7 @@ function M.plugin(mod)
 
     -- Failed!
     if not suc then
-      util.printf("Module plugins.%s threw error: %s", mod, res)
+      wezterm.log_error(string.format("Module plugins.%s threw error: %s", mod, res))
 
     -- Returned table, merge
     elseif type(res) == "table" then
@@ -77,13 +77,15 @@ function M.plugin(mod)
 
     -- That isn't a table!
     elseif res then
-      util.printf("Module plugins.%s returned fun():%s, expected fun():table.", mod, type(res))
+      wezterm.log_error(string.format("Module plugins.%s returned fun():%s, expected fun():table.", mod, type(res)))
     end
 
   -- Not table or function!
   elseif export then
-    util.printf("%s", export)
-    util.printf("Module plugins.%s exported a %s, expected table or fun(c:table):table", mod, type(export))
+    wezterm.log_error(string.format("%s", export))
+    wezterm.log_error(
+      string.format("Module plugins.%s exported a %s, expected table or fun(c:table):table", mod, type(export))
+    )
   end
 
   -- Something went wrong, just return current config
