@@ -9,7 +9,7 @@ end
 local function file_exists(name)
   if not name then return false end
   local res = wezterm.glob(escape(name)) ---@type string[]
-  return res[1] and true or false
+  return res[1] == name
 end
 
 return file_exists
