@@ -1,1 +1,14 @@
-require("plugin").init("plugins")
+---TODO: report this bug: (highlight some text). Here is a minimal config:
+-- local wezterm = require("wezterm")
+-- return {
+--   font = wezterm.font_with_fallback({
+--     "JetBrains Mono", -- <built-in>, BuiltIn
+--   }, { weight = "Thin" or "ExtraBlack" }),
+--   colors = {
+--     -- the foreground color of selected text
+--     selection_fg = "black",
+--     -- the background color of selected text
+--     selection_bg = "#fffacd",
+--   },
+-- }
+return require("plugin").init("plugins")
