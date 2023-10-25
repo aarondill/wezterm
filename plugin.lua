@@ -110,7 +110,7 @@ function M.init(dir)
 
   local files = wezterm.read_dir(plugin_dir_path) ---@type string[]
   for _, abs_name in ipairs(files) do
-    local name = abs_name:sub(plugin_dir_path:len() + 2, -5) -- remove plugin_dir/ and .lua from name. Note: 1-based indexing...
+    local name = tostring(abs_name):sub(plugin_dir_path:len() + 2, -5) -- remove plugin_dir/ and .lua from name. Note: 1-based indexing...
     if name:find("%.") then
       wezterm.log_warn(("Lua filenames can not contain '.': %s"):format(abs_name))
     else
