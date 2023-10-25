@@ -90,6 +90,9 @@ return function()
     -- I don´t wanna see no tabs if I aint usin' them. (default - false)
     hide_tab_bar_if_only_one_tab = true,
 
+    --- Smaller tab bar font:
+    use_fancy_tab_bar = false,
+
     -- Point out when input echo is disabled (default)
     detect_password_input = true,
 
