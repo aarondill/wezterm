@@ -27,5 +27,6 @@ return function()
       "Noto Color Emoji",
       "Symbols Nerd Font Mono", -- <built-in>, BuiltIn
     }, { weight = font_weight }),
+    freetype_load_flags = "NO_HINTING", -- Fix a ton of rendering issues
   }
 end
