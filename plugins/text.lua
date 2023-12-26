@@ -6,8 +6,8 @@ return function()
     -- *THIS* is a word. (default)
     selection_word_boundary = " \t\n{}[]()\"'`",
 
-    -- Lmk if i'm missing some stuff (default)
-    warn_about_missing_glyphs = true,
+    -- Don't lmk if i'm missing some stuff
+    warn_about_missing_glyphs = false,
 
     -- Pasting compatibility with windows. (default - true, equivalent to CarriageReturnAndLineFeed)
     canonicalize_pasted_newlines = "CarriageReturnAndLineFeed",
