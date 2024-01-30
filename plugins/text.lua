@@ -1,7 +1,11 @@
 return function()
   local wezterm = require("wezterm")
-  local use_regular = "20230712-072601-f4abf8fd" -- Last *known* good commit for Regular font (IMO). Thin font affects font brightness before this.
-  local font_weight = wezterm.version <= use_regular and "Regular" or "Thin"
+  local use_regular_before = "20230712-072601-f4abf8fd" -- Last *known* good commit for Regular font (IMO). Thin font affects font brightness before this.
+  local use_regular_after = "20240129-220340-47f647ca" -- Fixed after this
+  local font_weight = wezterm.version <= use_regular_before
+      and wezterm.version >= use_regular_after -- Regular works?
+      and "Regular"
+    or "Thin"
   return {
     -- *THIS* is a word. (default)
     selection_word_boundary = " \t\n{}[]()\"'`",
@@ -26,7 +30,7 @@ return function()
       -- Pixel sizes: [128]
       "Noto Color Emoji",
       "Symbols Nerd Font Mono", -- <built-in>, BuiltIn
-    }, { weight = font_weight }),
+    }, { weight = "Regular" }),
     freetype_load_flags = "NO_HINTING", -- Fix a ton of rendering issues
   }
 end
