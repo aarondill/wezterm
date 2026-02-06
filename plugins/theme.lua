@@ -83,7 +83,7 @@ return function()
     cursor_blink_rate = 3000,
 
     -- ✨transparency✨ (default - 1)
-    window_background_opacity = 0.85,
+    window_background_opacity = 1,
     -- Don't change my colors pls (default - true, equivalent to BrightAndBold)
     bold_brightens_ansi_colors = "No",
 
